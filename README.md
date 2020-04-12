@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App to visualize survey data for covid-19. 
 
 ## Available Scripts
 
