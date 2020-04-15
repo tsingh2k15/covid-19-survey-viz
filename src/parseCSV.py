@@ -1,8 +1,10 @@
-import csv, json, xlrd
+import csv, json
 
 def csvParse(csvfile):
+    
     # Open the CSV
     f = open( csvfile, 'r' )
+    
     # Change each fieldname to the appropriate field name, if required.
     reader = csv.DictReader( f, fieldnames = ("Have you recently experienced sudden loss of your sense of smell and/or taste?","0-12 years","13-19 years","20-39 years","40-59 years","60-79 years","80+ years","Please tell use where you live"))
     
@@ -54,6 +56,7 @@ def csvParse(csvfile):
                 }
             ages['80+ years'].append(entry)
 
+            
     for i, j in ages.items():
         entry = {
             "children":j,
@@ -63,9 +66,13 @@ def csvParse(csvfile):
         mydata["children"].append(entry)
 
     print(mydata)
+    
     # Parse the CSV into JSON
     out = json.dumps(mydata, indent=4)
+    
     # Save the JSON
     f = open( 'data.json', 'w')
     f.write(out)
+    
+    
 csvParse('sample.csv')
