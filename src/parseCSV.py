@@ -5,9 +5,10 @@ def csvParse(csvfile):
     f = open( csvfile, 'r' )
     # Change each fieldname to the appropriate field name, if required.
     reader = csv.DictReader( f, fieldnames = ("Have you recently experienced sudden loss of your sense of smell and/or taste?","0-12 years","13-19 years","20-39 years","40-59 years","60-79 years","80+ years","Please tell use where you live"))
-    mydata = [{"children":[]}]
+    
+    mydata = {"children":[]}
     ages = {'0-12 years':[],'13-19 years':[],'20-39 years':[],'40-59 years':[],'60-79 years':[],'80+ years':[]}
-    #children = [ { children:[{ name:"Loc1"}], "name":"Age1"},{"name":"age2"},{"name":"Age3"} , { children:[{}] }]
+    
     for row in reader:
         if row["0-12 years"] is not '':
             if row["13-19 years"] is not '': continue
@@ -59,7 +60,7 @@ def csvParse(csvfile):
             "clr":'colors[5]',
             'name': i
         }
-        mydata[0]["children"].append(entry)
+        mydata["children"].append(entry)
 
     print(mydata)
     # Parse the CSV into JSON
