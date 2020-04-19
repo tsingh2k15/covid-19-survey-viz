@@ -5,7 +5,7 @@ def csvParse(csvfile):
     # Open the CSV
     f = open( csvfile, 'r' )
     
-    # Change each fieldname to the appropriate field name, if required.
+    # Change each field name to the appropriate field name, if required.
     reader = csv.DictReader( f, fieldnames = ("Have you recently experienced sudden loss of your sense of smell and/or taste?","0-12 years","13-19 years","20-39 years","40-59 years","60-79 years","80+ years","Please tell use where you live"))
     
     mydata = {"children":[]}
@@ -74,5 +74,5 @@ def csvParse(csvfile):
     f = open( 'data.json', 'w')
     f.write(out)
     
-    
-csvParse('sample.csv')
+if __name__ == "__main__":
+    csvParse('sample.csv')
